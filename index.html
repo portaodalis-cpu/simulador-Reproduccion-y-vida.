@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f3ea">
+  <title>Reproducción y vida: conocer para debatir</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <section id="cover" class="cover-screen">
+      <div class="cover-panel">
+        <p class="eyebrow">Ciencias de la Naturaleza · 2do grado de secundaria</p>
+        <h1>Reproducción y vida: conocer para debatir</h1>
+        <p class="lead">Cuadernillo digital inteligente para lectura científica, escritura argumentativa, modelización y reflexión ética.</p>
+
+        <div class="student-grid" aria-label="Registro del estudiante">
+          <label>Nombre del estudiante<input id="studentName" autocomplete="name" required></label>
+          <label>Sección<input id="studentSection" required></label>
+          <label>Fecha<input id="studentDate" type="date" required></label>
+        </div>
+
+        <article class="warning-box">
+          <h2>Advertencia académica</h2>
+          <p>El uso de inteligencia artificial, copia de internet o reproducción no auténtica de respuestas está prohibido en esta evaluación.</p>
+          <p>Las respuestas serán analizadas considerando:</p>
+          <ul>
+            <li>autenticidad textual,</li>
+            <li>coherencia temporal,</li>
+            <li>comportamiento de escritura,</li>
+            <li>tiempo de respuesta,</li>
+            <li>evidencias de edición y construcción progresiva.</li>
+          </ul>
+          <p>La calificación dependerá tanto de la calidad científica de las respuestas como de la autenticidad del proceso de elaboración.</p>
+        </article>
+
+        <div class="cover-actions">
+          <button id="startBtn" class="primary-btn">Iniciar cuadernillo</button>
+          <button id="resumeBtn" class="ghost-btn" type="button">Continuar progreso guardado</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="workspace" class="workspace hidden">
+      <aside class="sidebar" aria-label="Navegación de actividades">
+        <div class="brand-block">
+          <span class="small-label">Cuadernillo digital</span>
+          <strong>Reproducción y vida</strong>
+        </div>
+        <div class="student-card">
+          <span id="studentBadge">Estudiante</span>
+          <small id="saveStatus">Guardado automático activo</small>
+        </div>
+        <nav id="activityNav" class="activity-nav"></nav>
+        <div class="sidebar-actions">
+          <button id="themeToggle" class="icon-btn" title="Cambiar modo claro/oscuro" type="button">◐</button>
+          <button id="resetBtn" class="text-btn" type="button">Reiniciar</button>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="small-label" id="periodLabel">Semana 1</p>
+            <h2 id="activityTitle"></h2>
+          </div>
+          <div class="progress-wrap" aria-label="Progreso">
+            <span id="progressText">0% completado</span>
+            <div class="progress-track"><span id="progressBar"></span></div>
+          </div>
+        </header>
+
+        <section id="activityMeta" class="meta-strip"></section>
+        <section id="activityContent" class="activity-content"></section>
+
+        <footer class="bottom-actions">
+          <button id="prevBtn" class="ghost-btn" type="button">Anterior</button>
+          <div id="validationSummary" class="validation-summary" role="status"></div>
+          <button id="nextBtn" class="primary-btn" type="button">Siguiente</button>
+          <button id="finishBtn" class="primary-btn hidden" type="button">Finalizar</button>
+        </footer>
+      </main>
+    </section>
+
+    <section id="finalScreen" class="final-screen hidden">
+      <div class="final-card">
+        <p class="eyebrow">Entrega final</p>
+        <h2>Cuadernillo completado</h2>
+        <p id="finalStudent"></p>
+        <p>Nota codificada: <strong id="codedScore"></strong></p>
+        <div id="finalCriteria" class="criteria-list"></div>
+        <div class="final-actions">
+          <button id="studentPdfBtn" class="primary-btn" type="button">PDF estudiante</button>
+          <button id="teacherPdfBtn" class="ghost-btn" type="button">PDF docente</button>
+          <button id="backToWorkBtn" class="text-btn" type="button">Revisar respuestas</button>
+        </div>
+        <p class="offline-note">Los datos quedan guardados en este navegador. La exportación PDF usa jsPDF/html2canvas cuando están disponibles; si estás offline y no cargaron todavía, usa imprimir/guardar como PDF desde el navegador.</p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
